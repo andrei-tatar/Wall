@@ -1,4 +1,4 @@
-﻿var app = angular.module('wall-app', []);
+﻿var app = angular.module('wall-app', ['ngMaterial']);
 
 app.controller('mainController', function ($http) {
     this.result = {};
