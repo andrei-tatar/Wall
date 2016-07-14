@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
-using Wall.Models;
+using Service.Models;
 
-namespace Wall.Controllers
+namespace Service.Controllers
 {
     public class TestController : ApiController
     {

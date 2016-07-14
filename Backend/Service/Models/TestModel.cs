@@ -1,4 +1,4 @@
-﻿namespace Wall.Models
+﻿namespace Service.Models
 {
     public class TestModel
     {

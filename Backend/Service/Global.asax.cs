@@ -2,9 +2,9 @@
 using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 
-namespace Wall
+namespace Service
 {
-    public class WebApiApplication : HttpApplication
+    public class Application : HttpApplication
     {
         protected void Application_Start()
         {
