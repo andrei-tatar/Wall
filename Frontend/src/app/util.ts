@@ -12,3 +12,9 @@ export function Inject(...what: string[]) {
         target.$inject = what;
     };
 }
+
+export function Service(name: string) {
+    return function (target) {
+        app.service(name, target);
+    }
+}

@@ -1,1 +1,3 @@
-interface JQueryStatic { }
+interface JQueryStatic { 
+    (any):any;
+}

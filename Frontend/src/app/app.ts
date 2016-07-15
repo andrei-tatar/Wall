@@ -9,3 +9,4 @@ export { app };
 import './config';
 import './routes';
 import './components/components';
+import './services/services';
