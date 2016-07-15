@@ -18,3 +18,9 @@ export function Service(name: string) {
         app.service(name, target);
     }
 }
+
+export function Filter(name: string) {
+    return function (target) {
+        app.filter(name, () => new target().convert);
+    }
+}

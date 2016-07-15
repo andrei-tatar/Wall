@@ -1,0 +1,13 @@
+<md-dialog md-theme="default"> 
+    <md-dialog-content class="md-dialog-content">
+        <h2 class="md-title">{{::$ctrl.title}}</h2>
+        <div class="md-dialog-content-body"><p>{{::$ctrl.message}}</p></div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-repeat='button in $ctrl.buttons' 
+                   ng-click="$ctrl.closeDialog(button)" 
+                   ng-class="{'md-primary':$first}">
+                   {{::button|messageButtonToText}}
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
