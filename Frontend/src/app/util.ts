@@ -1,10 +1,14 @@
 import { app } from './app';
 
-function Controller(name: string, ...inject: string[]) {
+export function Component(name: string, options: ng.IComponentOptions) {
     return function (target) {
-        inject.push(target);
-        app.controller(name, inject);
-    }
+        options.controller = target;
+        app.component(name, options);
+    };
 }
 
-export {Controller};
+export function Inject(...what: string[]) {
+    return function (target) {
+        target.$inject = what;
+    };
+}

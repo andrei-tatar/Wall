@@ -1,9 +1,11 @@
 import * as angular from 'angular';
 import 'angular-material';
+import 'angular-messages';
+import 'angular-ui-router';
 
-var app = angular.module('app', ['ngMaterial']);
+var app = angular.module('wall-app', ['ngMaterial', 'ui.router', 'ngMessages']);
 export { app };
 
-app.value('apiUri', 'http://localhost:50001/');
-
-import './main';
+import './config';
+import './routes';
+import './components/components';

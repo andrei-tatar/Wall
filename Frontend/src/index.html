@@ -2,6 +2,7 @@
 <html lang="en" manifest="app.appcache">
 <head>
   <title>Wall</title>
+  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- build:js -->
@@ -12,7 +13,7 @@
   </script>
   <!-- endbuild -->
 </head>
-<body ng-app="app" ng-controller="mainController as main">
+<body ng-app="wall-app">
   <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
@@ -20,12 +21,6 @@
       </div>
     </md-toolbar>
   </md-content>
-  <md-content>
-    <md-progress-circular md-mode="indeterminate" ng-if="main.loading"></md-progress-circular>
-    <div ng-if="!main.loading">
-      Name: {{main.result.name}} <br />
-      Description: {{main.result.description}}
-    </div>
-  </md-content>
+  <md-content ui-view></md-content>
 </body>
 </html>
