@@ -1,9 +1,8 @@
 import {Component} from '../../util';
-import * as loginTemplate from './login.html!text';
 import './login.css!';
 
 @Component('wallLogin', {
-    template: loginTemplate
+    templateUrl: 'app/components/login/login.html'
 })
 class WallLogin implements ng.IComponentController {
     public user: string;
