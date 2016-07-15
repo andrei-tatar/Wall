@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        ".vscode/": true,
+        ".gitignore": true,
+        "build/" : true,
+        "*.json" : true,
+        "src/**/*.js" : true,
+        "node_modules/" : true,
+        "typings/" : true,
+        "/**/*.map": true,
+        "src/jspm_packages/": true
+    }
+}

@@ -10,6 +10,9 @@ class MainController implements angular.IComponentController {
             .then(response => {
                 this.result = response.data;
                 this.loading = false;
+            })
+            .catch(error => {
+                alert("There was an error handling the request to the service!");
             });
     }
 
