@@ -1,2 +1,3 @@
 import { app } from './app';
-app.value('apiUri', 'http://localhost:50001/');
+
+app.config(['$locationProvider', $locationProvider => $locationProvider.html5Mode(true)]);
