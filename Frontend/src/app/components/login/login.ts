@@ -5,13 +5,14 @@ import './login.css!';
 @Component('wallLogin', {
     templateUrl: 'app/components/login/login.html'
 })
-@Inject('LoginService', 'MessagePresenter')
+@Inject('LoginService', 'MessagePresenter', '$state')
 class WallLogin implements ng.IComponentController {
     public user: string;
     public password: string;
 
     constructor(private loginService: ILoginService,
-                private messagePresenter: IMessagePresenter) {
+                private messagePresenter: IMessagePresenter,
+                private state: angular.ui.IStateService) {
     }
 
     public login() {
@@ -20,6 +21,9 @@ class WallLogin implements ng.IComponentController {
 
         this.messagePresenter
             .showMessage('Hello', 'You want to login?', [MessageButton.Yes, MessageButton.No]);
-        //console.log(`Login ${this.user} with pass ${this.password}`)
+    }
+
+    public register() {
+        this.state.go('register');
     }
 }
