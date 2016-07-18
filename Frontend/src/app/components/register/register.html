@@ -17,7 +17,7 @@
             <md-input-container class="md-block">
                 <label>Password</label>
                 <input required type="password" name="password" ng-model="$ctrl.password">
-                <div ng-messages="registerForm.password.$error">
+                <div ng-messages="registerForm.password.$error" md-auto-hide="false">
                     <div ng-message="required">The password is required.</div>
                 </div>
             </md-input-container>
@@ -26,7 +26,7 @@
                 <label>Confirm password</label>
                 <input required type="password" name="confirmPassword" ng-model="$ctrl.confirmPassword"
                        value-match="$ctrl.password">
-                <div ng-messages="registerForm.confirmPassword.$error">
+                <div ng-messages="registerForm.confirmPassword.$error" md-auto-hide="false">
                     <div ng-message="required">The password is required.</div>
                     <div ng-message="valueMatch">Password does not match.</div>
                 </div>
