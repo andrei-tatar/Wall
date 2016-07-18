@@ -1,0 +1,48 @@
+<md-card class="register-card" layout="column">
+    <md-card-header>
+        <md-card-title-text>
+            <span class="md-headline">Register</span>
+        </md-card-title-text>
+    </md-card-header>
+    <md-card-content>
+        <form name="registerForm">
+            <md-input-container class="md-block">
+                <label>User Name</label>
+                <input required name="userName" ng-model="$ctrl.user">
+                <div ng-messages="registerForm.userName.$error">
+                    <div ng-message="required">The username is not valid.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input required type="password" name="password" ng-model="$ctrl.password">
+                <div ng-messages="registerForm.password.$error">
+                    <div ng-message="required">The password is required.</div>
+                </div>
+            </md-input-container>
+
+    <md-input-container class="md-block">
+                <label>Confirm password</label>
+                <input required type="password" name="confirm_password" ng-model="$ctrl.confirm_password">
+                <div ng-messages="registerForm.confirm_password.$error">
+                    <div ng-message="required">The password is required.</div>
+                  <div ng-if="!$ctrl.checkPassword()"  >The password does not match</div>    
+                </div>
+               
+            </md-input-container>
+
+             <md-input-container class="md-block">
+                <label>Type</label>
+              <select name="userType" ng-model="$ctrl.userType">
+                  <option value='Administrator'>Administrator</option>
+                  <option value='user'>User</option>
+                  </select>
+            </md-input-container>
+
+
+
+        </form>
+     
+    </md-card-content>
+</md-card>
