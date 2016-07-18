@@ -1,0 +1,44 @@
+<md-card class="register-card" layout="column">
+    <md-card-header>
+        <md-card-title-text>
+            <span class="md-headline">Register</span>
+        </md-card-title-text>
+    </md-card-header>
+    <md-card-content>
+        <form name="registerForm">
+            <md-input-container class="md-block">
+                <label>User Name</label>
+                <input required name="userName" ng-model="$ctrl.user">
+                <div ng-messages="registerForm.userName.$error">
+                    <div ng-message="required">The username is not valid.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input required type="password" name="password" ng-model="$ctrl.password">
+                <div ng-messages="registerForm.password.$error" md-auto-hide="false">
+                    <div ng-message="required">The password is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Confirm password</label>
+                <input required type="password" name="confirmPassword" ng-model="$ctrl.confirmPassword"
+                       value-match="$ctrl.password">
+                <div ng-messages="registerForm.confirmPassword.$error" md-auto-hide="false">
+                    <div ng-message="required">The password is required.</div>
+                    <div ng-message="valueMatch">Password does not match.</div>
+                </div>
+            </md-input-container>
+
+             <md-input-container class="md-block">
+                <label>Type</label>
+                <md-select name="userType" ng-model="$ctrl.userType">
+                    <md-option value='Administrator'>Administrator</md-option>
+                    <md-option value='User'>User</md-option>
+                </md-select>
+            </md-input-container>
+        </form>
+    </md-card-content>
+</md-card>
