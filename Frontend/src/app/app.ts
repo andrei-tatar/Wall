@@ -11,4 +11,3 @@ import './routes';
 import './components/components';
 import './services/services';
 import './directives/directives';
-import './init';

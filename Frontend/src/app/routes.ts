@@ -1,15 +1,22 @@
 import {app} from './app'
 
-app.config(['$stateProvider', '$urlRouterProvider', ConfigRoutes])
+app.config(ConfigRoutes)
 
-function ConfigRoutes($stateProvider, $urlRouterProvider) {
-    $stateProvider
+ConfigRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
+function ConfigRoutes(stateProvider: ng.ui.IStateProvider, urlRouterProvider: ng.ui.IUrlRouterProvider) {
+    stateProvider
         .state('login', {
-            url: "/login",
+            url: '/login',
             template: '<wall-login></wall-login>'
         })
-         .state('register', {
-            url: "/register",
+        .state('register', {
+            url: '/register',
             template: '<wall-register></wall-register>'
+        })
+        .state('home', {
+            url: '/',
+            template: '<wall-home></wall-home>'
         });
+
+    urlRouterProvider.otherwise('/');
 }
