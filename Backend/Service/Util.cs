@@ -12,5 +12,15 @@ namespace Service
         {
             return Convert.ToBase64String(Sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
         }
+
+        public static string UserToToken(string user)
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(user));
+        }
+
+        public static string TokenToUser(string token)
+        {
+            return Encoding.UTF8.GetString(Convert.FromBase64String(token));
+        }
     }
 }

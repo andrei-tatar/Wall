@@ -6,13 +6,20 @@ namespace Service.Controllers
 {
     public class LoginController : ApiController
     {
-        public async Task<IHttpActionResult> Post(string user, string password)
+        public async Task<IHttpActionResult> Post([FromBody]UserEntity user)
         {
-            var userModel = await ServiceProvider.Instance.UserRepository.Get(user);
-            if (userModel == null || userModel.PasswordHash != Util.GetPasswordHash(password))
+            var userModel = await ServiceProvider.Instance.UserRepository.Get(user.User);
+            if (userModel == null || userModel.PasswordHash != Util.GetPasswordHash(user.Password))
                 return Unauthorized();
 
-            return Ok("some access token");
+            var token = Util.UserToToken(user.User);
+            return Ok($"Bearer {token}");
+        }
+
+        public class UserEntity
+        {
+            public string User { get; set; }
+            public string Password { get; set; }
         }
     }
 }

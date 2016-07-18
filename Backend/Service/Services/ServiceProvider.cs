@@ -13,7 +13,9 @@ namespace Service.Services
         private ServiceProvider()
         {
             UserRepository = new UserRepository();
-            UserRepository.Add(new User("admin", Util.GetPasswordHash("admin")));
+
+            UserRepository.Add(new User("admin", Util.GetPasswordHash("admin"), "admin", "user"));
+            UserRepository.Add(new User("user", Util.GetPasswordHash("user"), "user"));
         }
     }
 }
