@@ -12,3 +12,9 @@ export function Inject(...what: string[]) {
         target.$inject = what;
     };
 }
+
+export function Directive(name: string) {
+    return function(target) {
+        app.directive(name, () => new target());
+    };
+}
