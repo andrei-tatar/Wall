@@ -18,9 +18,13 @@ class WallLogin implements ng.IComponentController {
     public login() {
         this.loginService
             .login(this.user, this.password)
+            .catch(err => this.loginFailed())
+            .then(_ => this.state.go('home'));
+    }
 
+    private loginFailed() {
         this.messagePresenter
-            .showMessage('Hello', 'You want to login?', [MessageButton.Yes, MessageButton.No]);
+            .showMessage('Error', 'Could not perform login.', [MessageButton.OK]);
     }
 
     public register() {

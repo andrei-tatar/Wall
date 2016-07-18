@@ -1,5 +1,4 @@
 export interface ILoginService {
-    isLoggedIn(): boolean;
     login(user: string, password: string): ng.IPromise<any>;
 }
 

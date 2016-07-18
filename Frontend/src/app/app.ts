@@ -8,6 +8,7 @@ export { app };
 
 import './config';
 import './routes';
+import './values';
 import './components/components';
 import './services/services';
 import './directives/directives';

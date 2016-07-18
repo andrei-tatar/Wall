@@ -4,14 +4,20 @@ import {ILoginService} from '../../interfaces/services';
 @Component('wallHome', {
     templateUrl: 'app/components/home/home.html'
 })
-@Inject('LoginService', '$state')
+@Inject('LoginService', '$state', '$http', 'apiUri')
 class HomeComponent implements ng.IComponentController {
+    public homeMessage: string;
+
     constructor(private loginService: ILoginService,
-                private state: angular.ui.IStateService) {
+                private state: angular.ui.IStateService,
+                private http: angular.IHttpService,
+                private apiUri: string) {
     }
 
     public $onInit() {
-        if (!this.loginService.isLoggedIn())
-            this.state.go('login');
+        this.http
+            .get(`${this.apiUri}api/home`)
+            .then(result => this.homeMessage = <string>result.data)
+            .catch(_ => this.state.go('login'));
     }
 }
