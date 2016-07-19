@@ -12,12 +12,15 @@
     System.import('app/app').catch(function(err){ console.error(err); });
   </script>
   <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body ng-app="wall-app" layout="column">
   <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <h2>The Wall Application</h2>
+        <div flex ui-view="toolbar">
+        </div>
       </div>
     </md-toolbar>
   </md-content>

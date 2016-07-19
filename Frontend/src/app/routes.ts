@@ -15,7 +15,10 @@ function ConfigRoutes(stateProvider: ng.ui.IStateProvider, urlRouterProvider: ng
         })
         .state('home', {
             url: '/',
-            template: '<wall-home></wall-home>'
+            views: {
+                '': {template: '<wall-home></wall-home>'},
+                'toolbar': {template: '<wall-toolbar></wall-toolbar>'}
+            }
         });
 
     urlRouterProvider.otherwise('/');
