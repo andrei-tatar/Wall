@@ -5,7 +5,7 @@
         </md-card-title-text>
     </md-card-header>
     <md-card-content>
-        <form name="loginForm">
+        <form name="loginForm" ng-submit="$ctrl.login()">
             <md-input-container class="md-block">
                 <label>User Name</label>
                 <input required name="userName" ng-model="$ctrl.user">
@@ -21,12 +21,12 @@
                     <div ng-message="required">The password is required.</div>
                 </div>
             </md-input-container>
+            
+            <div layout-align="end" layout="row">
+                <md-button ng-click="$ctrl.register()">Register</md-button>
+                <md-button type="submit" class="md-raised md-primary"
+                           ng-disabled="!loginForm.$valid">Login</md-button>
+            </div>
         </form>
-        <div layout-align="end" layout="row">
-            <md-button ng-click="$ctrl.register()">Register</md-button>
-            <md-button ng-click="$ctrl.login()"
-                       ng-disabled="!loginForm.$valid" 
-                       class="md-raised md-primary">Login</md-button>
-        </div>
     </md-card-content>
 </md-card>
