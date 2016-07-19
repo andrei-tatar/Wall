@@ -10,8 +10,9 @@ export class LoginService implements ILoginService {
                 private apiUri: string) {
         if (localStorage) {
             var token: string = localStorage.getItem(this._authTokenKey);
-            if (token && token.length > 0)
+            if (token && token.length > 0) {
                 this.setToken(token);
+            }
         }
     }
 
@@ -24,9 +25,17 @@ export class LoginService implements ILoginService {
             .then(response => this.setToken(<string>response.data));
     }
 
+    public logout() {
+        delete this.http.defaults.headers.common.Authorization;
+        if (localStorage) {
+            localStorage.removeItem(this._authTokenKey);
+        }
+    }
+
     private setToken(token: string) {
         this.http.defaults.headers.common.Authorization = token;
-        if (localStorage)
+        if (localStorage) {
             localStorage.setItem(this._authTokenKey, token);
+        }
     }
 }

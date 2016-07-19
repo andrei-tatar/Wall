@@ -15,11 +15,15 @@ class WallLogin implements ng.IComponentController {
                 private state: angular.ui.IStateService) {
     }
 
+    public $onInit() {
+        this.loginService.logout();
+    }
+
     public login() {
         this.loginService
             .login(this.user, this.password)
-            .catch(err => this.loginFailed())
-            .then(_ => this.state.go('home'));
+            .then(_ => this.state.go('home'))
+            .catch(err => this.loginFailed());
     }
 
     private loginFailed() {

@@ -1,5 +1,6 @@
 export interface ILoginService {
     login(user: string, password: string): ng.IPromise<any>;
+    logout();
 }
 
 export interface IMessagePresenter {
