@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Filters;
 using Newtonsoft.Json.Serialization;
 
 namespace Service
@@ -11,11 +12,15 @@ namespace Service
         {
             GlobalConfiguration.Configure(config =>
             {
+                var resolver = new MefDependencyResolver();
+                config.DependencyResolver = resolver;
+
                 //the frontend is on a different endpoint. allow cross domain requests
                 var cors = new EnableCorsAttribute("*", "*", "*");
                 config.EnableCors(cors);
 
-                config.Filters.Add(new SimpleTokenAuthentication());
+                var filters = resolver.Resolve<IFilter>();
+                config.Filters.AddRange(filters);
 
                 config.MapHttpAttributeRoutes();
 

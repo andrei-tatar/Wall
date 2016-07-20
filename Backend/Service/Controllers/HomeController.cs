@@ -1,8 +1,10 @@
-﻿using System.Web.Http;
+﻿using System.ComponentModel.Composition;
+using System.Web.Http;
 
 namespace Service.Controllers
 {
     [Authorize]
+    [Export, PartCreationPolicy(CreationPolicy.NonShared)]
     public class HomeController : ApiController
     {
         public string Get()
