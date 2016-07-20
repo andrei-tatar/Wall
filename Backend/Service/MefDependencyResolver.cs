@@ -15,6 +15,11 @@ namespace Service
             _container = new CompositionContainer(new ApplicationCatalog());
         }
 
+        private MefDependencyResolver(ExportProvider parent)
+        {
+            _container = new CompositionContainer(parent);
+        }
+
         public void Dispose()
         {
             _container.Dispose();
@@ -22,7 +27,7 @@ namespace Service
 
         public IDependencyScope BeginScope()
         {
-            return new MefDependencyResolver();
+            return new MefDependencyResolver(_container);
         }
 
         public object GetService(Type serviceType)
