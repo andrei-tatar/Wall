@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Service.Interfaces;
 using Service.Models;
 
-namespace Service.Interfaces
+namespace Service.Controllers
 {
     [Export, PartCreationPolicy(CreationPolicy.NonShared)]
     public class RegisterController : ApiController

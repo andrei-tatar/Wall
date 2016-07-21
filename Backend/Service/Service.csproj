@@ -103,7 +103,7 @@
     <Compile Include="Interfaces\IIdentifiable.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="Interfaces\RegisterController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="MefDependencyResolver.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
