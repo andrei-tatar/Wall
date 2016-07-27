@@ -20,8 +20,8 @@ namespace Service.Services
             if (items.Length != 0)
                 return;
 
-            await AddOrUpdate(new User("admin", Util.GetPasswordHash("admin"), "admin", "user"));
-            await AddOrUpdate(new User("user", Util.GetPasswordHash("user"), "user"));
+            await AddOrUpdate(new User("admin", Util.GetPasswordHash("admin"), "admin"));
+            await AddOrUpdate(new User("user", Util.GetPasswordHash("user")));
         }
     }
 }

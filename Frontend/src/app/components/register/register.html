@@ -5,7 +5,7 @@
         </md-card-title-text>
     </md-card-header>
     <md-card-content>
-        <form name="registerForm">
+        <form name="registerForm" ng-submit="$ctrl.register()">
             <md-input-container class="md-block">
                 <label>User Name</label>
                 <input required name="userName" ng-model="$ctrl.user">
@@ -32,13 +32,11 @@
                 </div>
             </md-input-container>
 
-             <md-input-container class="md-block">
-                <label>Type</label>
-                <md-select name="userType" ng-model="$ctrl.userType">
-                    <md-option value='Administrator'>Administrator</md-option>
-                    <md-option value='User'>User</md-option>
-                </md-select>
-            </md-input-container>
+            <div layout-align="end" layout="row">
+                <md-button type="submit"
+                           class="md-raised md-primary"
+                           ng-disabled="!registerForm.$valid">Register</md-button>
+            </div>
         </form>
     </md-card-content>
 </md-card>

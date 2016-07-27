@@ -32,6 +32,14 @@ export class LoginService implements ILoginService {
         }
     }
 
+    public register(user: string, password: string): ng.IPromise<any> {
+        return this.http
+            .post(`${this.apiUri}api/register`, {
+                id: user,
+                password: password
+            });
+    }
+
     private setToken(token: string) {
         this.http.defaults.headers.common.Authorization = token;
         if (localStorage) {
