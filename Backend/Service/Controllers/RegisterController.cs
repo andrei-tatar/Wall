@@ -26,7 +26,7 @@ namespace Service.Controllers
             if (userModel != null)
                 return Ok("User already registered");
 
-            await _userRepository.Add(new User(user.Id, Util.GetPasswordHash(user.Password), user.Role));
+            await _userRepository.AddOrUpdate(new User(user.Id, Util.GetPasswordHash(user.Password), user.Role));
             return Ok("User registered successfully");
         }
 
